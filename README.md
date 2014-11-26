@@ -30,6 +30,17 @@ set :irc_user, 'myproject' # default: 'capistrano'
 set :notification, -> { "#{fetch(:application)} was deployed to #{fetch(:stage)}" } # this message is default
 ```
 
+### Slack notification
+
+```ruby
+set :slack_webhook_url, 'https://hooks.slack.com/services/EX/AM/PLE'
+set :slack_user, 'myproject' # default: 'capistrano'
+set :slack_channel, '#notice'
+set :slack_icon, ':ghost:'                     # use emoji
+set :slack_icon, 'http://example.com/icon.png' # use image
+set :notification, -> { "#{fetch(:application)} was deployed to #{fetch(:stage)}" } # this message is default
+```
+
 ### Other notification
 
 **contribute me!**
