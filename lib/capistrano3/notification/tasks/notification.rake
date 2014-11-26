@@ -22,7 +22,7 @@ namespace :notification do
     port = fetch(:irc_port)
     channel = fetch(:irc_channel)
     message = fetch(:notification)
-    return unless user && host && port && channel && message
+    next unless user && host && port && channel && message
     require 'shout-bot'
     url = "irc://#{user}@#{host}:#{port}/#{channel}"
     ShoutBot.shout(url) { |irc| irc.say message }
@@ -34,7 +34,7 @@ namespace :notification do
     channel = fetch(:slack_channel)
     icon = fetch(:slack_icon) || nil
     message = fetch(:notification)
-    return unless user && channel && webhook_url && message
+    next unless user && channel && webhook_url && message
     require 'slack-notifier'
     notifier_options = { username: user, channel: channel }.reject { |_x, y| y.nil? }
     icon_type = case icon
