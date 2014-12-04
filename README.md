@@ -26,7 +26,7 @@ in `deploy.rb` or staging files:
 set :irc_host, 'example.com'
 set :irc_port, 16667         # default: 6667
 set :irc_channel, '#notice'
-set :irc_user, 'myproject' # default: 'capistrano'
+set :notifier, 'myproject' # default: 'capistrano'
 set :notification, -> { "#{fetch(:application)} was deployed to #{fetch(:stage)}" } # this message is default
 ```
 
@@ -34,10 +34,10 @@ set :notification, -> { "#{fetch(:application)} was deployed to #{fetch(:stage)}
 
 ```ruby
 set :slack_webhook_url, 'https://hooks.slack.com/services/EX/AM/PLE'
-set :slack_user, 'myproject' # default: 'capistrano'
 set :slack_channel, '#notice'
 set :slack_icon, ':ghost:'                     # use emoji
 set :slack_icon, 'http://example.com/icon.png' # use image
+set :notifier, 'myproject' # default: 'capistrano'
 set :notification, -> { "#{fetch(:application)} was deployed to #{fetch(:stage)}" } # this message is default
 ```
 
