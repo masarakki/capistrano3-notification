@@ -42,8 +42,6 @@ namespace :notification do
                   :icon_emoji
                 when /^http/
                   :icon_url
-                else
-                  nil
                 end
     ping_options = {}.tap do |h|
       h[icon_type] = icon if icon_type
