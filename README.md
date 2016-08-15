@@ -1,13 +1,14 @@
 # Capistrano3::Notification
 
-Notification for capistrano3
+Notification for capistrano3.
+Sending notification to irc/slack/... after deployment completed.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'capistrano3-notification'
+gem 'capistrano3-notification', require: false
 ```
 
 ## Usage
@@ -17,6 +18,8 @@ in `Capfile`:
 ```ruby
 require 'capistrano3/notification'
 ```
+
+## Configuration
 
 ### IRC notification
 
@@ -44,6 +47,18 @@ set :notification, -> { "#{fetch(:application)} was deployed to #{fetch(:stage)}
 ### Other notification
 
 **contribute me!**
+
+## Notify manually
+
+You can use `notify` method to send message.
+
+```ruby
+# lib/capistrano/tasks/foo.rake
+
+task :foo do
+  notify 'hello!'
+end
+```
 
 ## Contributing
 
